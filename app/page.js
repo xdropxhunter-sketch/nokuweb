@@ -27,8 +27,9 @@ import {
   ChevronDown,
 } from 'lucide-react'
 
-const INVITE_URL = '#'
+const INVITE_URL = 'https://discord.com/oauth2/authorize?client_id=1508173727953584308&permissions=4504426945832960&integration_type=0&scope=bot+applications.commands'
 const SUPPORT_URL = '#'
+const NOKU_AVATAR = '/noku.jpg'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -40,7 +41,16 @@ const stagger = {
   show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
 }
 
-function Avatar({ initials, color }) {
+function Avatar({ initials, color, src }) {
+  if (src) {
+    return (
+      <img
+        src={src}
+        alt={initials}
+        className="h-10 w-10 shrink-0 rounded-full object-cover shadow-md ring-2 ring-[#5865F2]/40"
+      />
+    )
+  }
   return (
     <div
       className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-semibold text-white shadow-md"
@@ -109,7 +119,7 @@ function FeatureCard({ icon: Icon, title, text, delay = 0 }) {
   )
 }
 
-function ChatMessage({ name, server, color, text, isBot, time, delay = 0 }) {
+function ChatMessage({ name, server, color, text, isBot, time, delay = 0, src }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -117,7 +127,7 @@ function ChatMessage({ name, server, color, text, isBot, time, delay = 0 }) {
       transition={{ delay, duration: 0.5, ease: 'easeOut' }}
       className="group flex gap-3 rounded-md px-2 py-1.5 hover:bg-white/[0.025]"
     >
-      <Avatar initials={name.slice(0, 2).toUpperCase()} color={color} />
+      <Avatar initials={name.slice(0, 2).toUpperCase()} color={color} src={src} />
       <div className="min-w-0 flex-1">
         <div className="flex items-baseline gap-2">
           <span className={`text-[15px] font-semibold ${isBot ? 'text-[#A5A8FF]' : 'text-white'}`}>
@@ -166,7 +176,14 @@ function DiscordMockup() {
         <div className="flex h-[520px] sm:h-[560px]">
           {/* Server rail */}
           <div className="hidden w-[72px] flex-col items-center gap-2 bg-[#1a1b1e] py-3 sm:flex">
-            <ServerCircle label="N" color="linear-gradient(135deg,#5865F2,#7C3AED)" active ring icon={<span className="text-base">N</span>} />
+            <div className="group relative flex items-center justify-center">
+              <span className="absolute -left-2 h-9 w-1 rounded-r-full bg-white" />
+              <img
+                src={NOKU_AVATAR}
+                alt="Noku"
+                className="h-12 w-12 rounded-[26px] object-cover shadow-lg ring-2 ring-[#5865F2] ring-offset-2 ring-offset-[#1a1b1e] transition-all duration-300 group-hover:rounded-[16px]"
+              />
+            </div>
             <div className="my-1 h-[2px] w-8 rounded bg-white/10" />
             <ServerCircle label="A" color="#23A559" />
             <ServerCircle label="B" color="#F23F42" />
@@ -281,6 +298,7 @@ function DiscordMockup() {
               <ChatMessage
                 name="Noku"
                 isBot
+                src={NOKU_AVATAR}
                 color="linear-gradient(135deg,#5865F2,#7C3AED)"
                 text="Servers connected successfully. Messages will now relay both ways."
                 time="8:14 PM"
@@ -334,6 +352,36 @@ function DiscordMockup() {
           Live bridge active
         </motion.div>
       )}
+
+      {/* Waving Noku mascot */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.7, y: -10 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.6, ease: 'backOut' }}
+        className="absolute -right-2 -top-8 z-20 hidden items-center gap-2.5 rounded-2xl border border-white/10 bg-[#1e1f22]/95 px-3 py-2 shadow-xl backdrop-blur md:flex"
+      >
+        <motion.img
+          src={NOKU_AVATAR}
+          alt="Noku"
+          animate={{ rotate: [0, -6, 6, -4, 0] }}
+          transition={{ duration: 2, repeat: Infinity, repeatDelay: 1.2, ease: 'easeInOut' }}
+          className="h-10 w-10 rounded-full object-cover ring-2 ring-[#5865F2]/60"
+          style={{ transformOrigin: '50% 80%' }}
+        />
+        <div className="pr-1">
+          <div className="text-[12px] font-semibold leading-tight text-white">
+            Hi, I'm Noku{' '}
+            <motion.span
+              animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
+              transition={{ duration: 1.6, repeat: Infinity, repeatDelay: 1.4, ease: 'easeInOut' }}
+              style={{ display: 'inline-block', transformOrigin: '70% 70%' }}
+            >
+              👋
+            </motion.span>
+          </div>
+          <div className="text-[10.5px] text-white/55">bridging your servers</div>
+        </div>
+      </motion.div>
     </div>
   )
 }
@@ -369,8 +417,13 @@ function App() {
       {/* Top nav */}
       <header className="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-6 pb-2 pt-6">
         <div className="flex items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#5865F2] to-[#7C3AED] shadow-lg shadow-[#5865F2]/30">
-            <span className="text-base font-extrabold text-white">N</span>
+          <div className="relative">
+            <img
+              src={NOKU_AVATAR}
+              alt="Noku"
+              className="h-9 w-9 rounded-xl object-cover shadow-lg shadow-[#5865F2]/30 ring-2 ring-[#5865F2]/50"
+            />
+            <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-[#0b0c10] bg-[#23A559]" />
           </div>
           <span className="text-[15px] font-semibold tracking-tight text-white">Noku</span>
         </div>
@@ -568,9 +621,11 @@ function App() {
       <footer className="relative border-t border-white/5 bg-[#0a0b0e]">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-10 md:flex-row md:items-center">
           <div className="flex items-center gap-2.5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#5865F2] to-[#7C3AED]">
-              <span className="text-sm font-extrabold text-white">N</span>
-            </div>
+            <img
+              src={NOKU_AVATAR}
+              alt="Noku"
+              className="h-8 w-8 rounded-lg object-cover ring-1 ring-white/10"
+            />
             <p className="text-sm text-white/65">
               Noku — Cross-server chat bot for Discord communities.
             </p>
