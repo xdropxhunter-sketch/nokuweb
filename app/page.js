@@ -28,7 +28,7 @@ import {
 } from 'lucide-react'
 
 const INVITE_URL = 'https://discord.com/oauth2/authorize?client_id=1508173727953584308&permissions=4504426945832960&integration_type=0&scope=bot+applications.commands'
-const SUPPORT_URL = '#'
+const SUPPORT_URL = 'https://discord.gg/wUCVeyfXA2'
 const NOKU_AVATAR = '/noku.jpg'
 
 const fadeUp = {
@@ -428,7 +428,6 @@ function App() {
           <span className="text-[15px] font-semibold tracking-tight text-white">Noku</span>
         </div>
         <nav className="hidden items-center gap-8 text-sm text-white/60 md:flex">
-          <a href="#features" className="transition hover:text-white">Features</a>
           <a href="#commands" className="transition hover:text-white">Commands</a>
           <a href={SUPPORT_URL} className="transition hover:text-white">Support</a>
         </nav>
@@ -527,35 +526,7 @@ function App() {
       </section>
 
       {/* Features */}
-      <section id="features" className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-          variants={stagger}
-          className="mx-auto mb-12 max-w-2xl text-center"
-        >
-          <motion.h3 variants={fadeUp} className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Designed around the Discord experience.
-          </motion.h3>
-          <motion.p variants={fadeUp} className="mt-3 text-white/60">
-            Four simple actions. Zero friction. Feels native to your server.
-          </motion.p>
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={stagger}
-          className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          <FeatureCard icon={Plug} title="Connect" text="Match your server with another community." />
-          <FeatureCard icon={MessageSquare} title="Chat" text="Messages appear with usernames and avatars." />
-          <FeatureCard icon={SkipForward} title="Skip" text="Move to another server anytime." />
-          <FeatureCard icon={ShieldCheck} title="Control" text="Report, block, and end calls easily." />
-        </motion.div>
-      </section>
+      <section id="features" className="hidden" />
 
       {/* Commands */}
       <section id="commands" className="relative mx-auto max-w-7xl px-6 pb-20">
@@ -633,7 +604,6 @@ function App() {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-white/45">
             <a href={INVITE_URL} className="hover:text-white">Invite</a>
             <a href={SUPPORT_URL} className="hover:text-white">Support</a>
-            <a href="#features" className="hover:text-white">Features</a>
             <a href="#commands" className="hover:text-white">Commands</a>
           </div>
         </div>
