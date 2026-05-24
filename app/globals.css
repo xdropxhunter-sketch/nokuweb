@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 240 10% 4%;
+  --foreground: 0 0% 100%;
+  --card: 240 8% 8%;
+  --card-foreground: 0 0% 100%;
+  --popover: 240 8% 8%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 235 86% 65%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 240 5% 14%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 240 5% 14%;
+  --muted-foreground: 240 5% 65%;
+  --accent: 235 86% 65%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 240 5% 18%;
+  --input: 240 5% 18%;
+  --ring: 235 86% 65%;
+  --radius: 0.75rem;
+}
+
+html, body {
+  background: #0b0c10;
+  color: #fff;
+}
+
+/* Subtle scrollbar inside mockup */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(180deg, #ffffff 0%, #c7c9ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Soft radial glow used behind hero */
+.hero-glow::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(60% 50% at 50% 30%, rgba(88, 101, 242, 0.35) 0%, rgba(88, 101, 242, 0) 60%),
+              radial-gradient(40% 40% at 80% 60%, rgba(168, 85, 247, 0.25) 0%, rgba(168, 85, 247, 0) 70%),
+              radial-gradient(40% 40% at 20% 70%, rgba(56, 189, 248, 0.18) 0%, rgba(56, 189, 248, 0) 70%);
+  filter: blur(20px);
+  z-index: 0;
+  pointer-events: none;
+}
