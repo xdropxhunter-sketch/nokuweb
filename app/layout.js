@@ -7,7 +7,7 @@ export const metadata = {
   title: 'Noku — Cross-server chat for Discord',
   description: 'Cross-server chat, built for Discord communities. Connect your server with another live community and start chatting instantly.',
   verification: {
-    google: 'google5686c459a437f593.html',
+    google: 'su745yTGjYD2YxCjZ-Nd4oDzhubbAniByFPPT__p084',
   },
   openGraph: {
     title: 'Noku — Cross-server chat for Discord',
