@@ -1,6 +1,5 @@
-import { ArrowRight, Bot, Hash, MessageCircle, PhoneCall, ShieldCheck } from 'lucide-react'
-
-const INVITE_URL = 'https://discord.com/oauth2/authorize?client_id=1508173727953584308&permissions=4504426945832960&integration_type=0&scope=bot+applications.commands'
+﻿import { ArrowRight, Bot, Hash, MessageCircle, PhoneCall, ShieldCheck } from 'lucide-react'
+import { faqItems, faqSchema, inviteUrl, JsonLd, LinkGrid } from '../seo-pages'
 
 export const metadata = {
   title: 'Discord Call Bot — Noku',
@@ -45,6 +44,7 @@ function Section({ eyebrow, title, children, icon: Icon }) {
 export default function DiscordCallBotPage() {
   return (
     <main className="min-h-screen bg-[#0b0c10] text-white">
+      <JsonLd data={faqSchema()} />
       <div className="hero-glow relative overflow-hidden">
         <header className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
           <a href="/" className="flex items-center gap-2.5">
@@ -55,8 +55,13 @@ export default function DiscordCallBotPage() {
             />
             <span className="text-[15px] font-semibold tracking-tight text-white">Noku</span>
           </a>
+          <nav className="hidden items-center gap-5 text-sm text-white/55 md:flex">
+            <a href="/commands" className="transition hover:text-white">Commands</a>
+            <a href="/blog" className="transition hover:text-white">Blog</a>
+            <a href="/privacy" className="transition hover:text-white">Privacy</a>
+          </nav>
           <a
-            href={INVITE_URL}
+            href={inviteUrl}
             className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#1e1f22] shadow-lg transition hover:bg-white/90"
           >
             Invite
@@ -79,7 +84,7 @@ export default function DiscordCallBotPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={INVITE_URL}
+                href={inviteUrl}
                 className="inline-flex items-center gap-2 rounded-full bg-[#5865F2] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#5865F2]/30 transition hover:bg-[#4752C4]"
               >
                 Invite Noku
@@ -136,7 +141,18 @@ export default function DiscordCallBotPage() {
           </div>
         </section>
 
-        <Section eyebrow="04" title="Invite Noku" icon={MessageCircle}>
+        <Section eyebrow="04" title="FAQ" icon={MessageCircle}>
+          <div className="space-y-4">
+            {faqItems.map((item) => (
+              <details key={item.question} className="rounded-2xl border border-white/10 bg-white/[0.035] p-5">
+                <summary className="cursor-pointer text-base font-semibold text-white">{item.question}</summary>
+                <p className="mt-3 text-sm leading-6 text-white/60">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </Section>
+
+        <Section eyebrow="05" title="Invite Noku" icon={ShieldCheck}>
           <p>
             Add Noku to your Discord server to create a polished way for members to chat with
             another Discord server. It is simple, direct, and built around safe cross-community
@@ -144,7 +160,7 @@ export default function DiscordCallBotPage() {
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <a
-              href={INVITE_URL}
+              href={inviteUrl}
               className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#1e1f22] shadow-xl transition hover:bg-white/90"
             >
               Invite Noku
@@ -156,6 +172,7 @@ export default function DiscordCallBotPage() {
             </span>
           </div>
         </Section>
+        <LinkGrid />
       </div>
     </main>
   )

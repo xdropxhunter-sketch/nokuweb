@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion, useReducedMotion } from 'framer-motion'
 import {
@@ -264,7 +264,7 @@ function DiscordMockup() {
               <div className="text-[12.5px] text-white/85">
                 <span className="font-semibold text-white">Noku</span> connected{' '}
                 <span className="rounded bg-white/10 px-1.5 py-0.5 font-medium">Server A</span>{' '}
-                <span className="text-white/50">↔</span>{' '}
+                <span className="text-white/50">â†”</span>{' '}
                 <span className="rounded bg-white/10 px-1.5 py-0.5 font-medium">Server B</span>
               </div>
             </motion.div>
@@ -291,7 +291,7 @@ function DiscordMockup() {
                 name="Simols"
                 server="Server B"
                 color="linear-gradient(135deg,#23A559,#1FB6FF)"
-                text="hii from another server 👋"
+                text="hii from another server ðŸ‘‹"
                 time="8:14 PM"
                 delay={0.9}
               />
@@ -308,7 +308,7 @@ function DiscordMockup() {
                 name="Ari"
                 server="Server B"
                 color="linear-gradient(135deg,#A855F7,#EC4899)"
-                text="this feels like one big server 😄"
+                text="this feels like one big server ðŸ˜„"
                 time="8:15 PM"
                 delay={1.7}
               />
@@ -333,7 +333,7 @@ function DiscordMockup() {
                 <Send className="h-5 w-5 text-[#A5A8FF]" />
               </div>
               <div className="mt-1.5 px-1 text-[11px] text-white/40">
-                Bridged via <span className="font-medium text-[#A5A8FF]">Noku</span> • Reply directly to send across servers
+                Bridged via <span className="font-medium text-[#A5A8FF]">Noku</span> â€¢ Reply directly to send across servers
               </div>
             </div>
           </div>
@@ -376,7 +376,7 @@ function DiscordMockup() {
               transition={{ duration: 1.6, repeat: Infinity, repeatDelay: 1.4, ease: 'easeInOut' }}
               style={{ display: 'inline-block', transformOrigin: '70% 70%' }}
             >
-              👋
+              ðŸ‘‹
             </motion.span>
           </div>
           <div className="text-[10.5px] text-white/55">bridging your servers</div>
@@ -427,8 +427,10 @@ function App() {
           </div>
           <span className="text-[15px] font-semibold tracking-tight text-white">Noku</span>
         </div>
-        <nav className="hidden items-center gap-8 text-sm text-white/60 md:flex">
-          <a href="#commands" className="transition hover:text-white">Commands</a>
+        <nav className="hidden items-center gap-6 text-sm text-white/60 md:flex">
+          <a href="/discord-call-bot" className="transition hover:text-white">Discord Call Bot</a>
+          <a href="/commands" className="transition hover:text-white">Commands</a>
+          <a href="/blog" className="transition hover:text-white">Blog</a>
           <a href={SUPPORT_URL} className="transition hover:text-white">Support</a>
         </nav>
         <a
@@ -598,13 +600,17 @@ function App() {
               className="h-8 w-8 rounded-lg object-cover ring-1 ring-white/10"
             />
             <p className="text-sm text-white/65">
-              Noku — Cross-server chat bot for Discord communities.
+              Noku â€” Cross-server chat bot for Discord communities.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-white/45">
             <a href={INVITE_URL} className="hover:text-white">Invite</a>
+            <a href="/discord-call-bot" className="hover:text-white">Discord Call Bot</a>
+            <a href="/commands" className="hover:text-white">Commands</a>
+            <a href="/blog" className="hover:text-white">Blog</a>
+            <a href="/privacy" className="hover:text-white">Privacy</a>
+            <a href="/terms" className="hover:text-white">Terms</a>
             <a href={SUPPORT_URL} className="hover:text-white">Support</a>
-            <a href="#commands" className="hover:text-white">Commands</a>
           </div>
         </div>
         <div className="border-t border-white/5">
@@ -618,3 +624,8 @@ function App() {
 }
 
 export default App
+
+
+
+
+
