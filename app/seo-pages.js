@@ -7,8 +7,8 @@ export const navLinks = [
   { href: '/discord-call-bot', label: 'Discord Call Bot' },
   { href: '/commands', label: 'Commands' },
   { href: '/blog', label: 'Blog' },
-  { href: '/privacy', label: 'Privacy' },
-  { href: '/terms', label: 'Terms' },
+  { href: '/privacy', label: 'Privacy Policy' },
+  { href: '/terms', label: 'Terms of Service' },
 ]
 
 export const faqItems = [

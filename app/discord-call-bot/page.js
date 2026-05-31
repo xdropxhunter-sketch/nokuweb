@@ -1,5 +1,5 @@
 ﻿import { ArrowRight, Bot, Hash, MessageCircle, PhoneCall, ShieldCheck } from 'lucide-react'
-import { faqItems, faqSchema, inviteUrl, JsonLd, LinkGrid } from '../seo-pages'
+import { faqItems, faqSchema, inviteUrl, JsonLd, LinkGrid, SiteFooter } from '../seo-pages'
 
 export const metadata = {
   title: 'Discord Call Bot — Noku',
@@ -174,6 +174,7 @@ export default function DiscordCallBotPage() {
         </Section>
         <LinkGrid />
       </div>
+      <SiteFooter />
     </main>
   )
 }

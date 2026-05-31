@@ -608,8 +608,8 @@ function App() {
             <a href="/discord-call-bot" className="hover:text-white">Discord Call Bot</a>
             <a href="/commands" className="hover:text-white">Commands</a>
             <a href="/blog" className="hover:text-white">Blog</a>
-            <a href="/privacy" className="hover:text-white">Privacy</a>
-            <a href="/terms" className="hover:text-white">Terms</a>
+            <a href="/privacy" className="hover:text-white">Privacy Policy</a>
+            <a href="/terms" className="hover:text-white">Terms of Service</a>
             <a href={SUPPORT_URL} className="hover:text-white">Support</a>
           </div>
         </div>
